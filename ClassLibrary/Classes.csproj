@@ -7,8 +7,8 @@
     <ProjectGuid>{AC2EF332-1F0B-4B74-9505-3DFC8E1C089A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary</RootNamespace>
-    <AssemblyName>ClassLibrary</AssemblyName>
+    <RootNamespace>Classes</RootNamespace>
+    <AssemblyName>Classes</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,9 +49,9 @@
   <ItemGroup>
     <Compile Include="Bottoms.cs" />
     <Compile Include="Context.cs" />
-    <Compile Include="Migrations\201806101728000_smartwardrobe.cs" />
-    <Compile Include="Migrations\201806101728000_smartwardrobe.Designer.cs">
-      <DependentUpon>201806101728000_smartwardrobe.cs</DependentUpon>
+    <Compile Include="Migrations\201806101750473_firstwardrobe.cs" />
+    <Compile Include="Migrations\201806101750473_firstwardrobe.Designer.cs">
+      <DependentUpon>201806101750473_firstwardrobe.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Shoes.cs" />
@@ -63,8 +63,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806101728000_smartwardrobe.resx">
-      <DependentUpon>201806101728000_smartwardrobe.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806101750473_firstwardrobe.resx">
+      <DependentUpon>201806101750473_firstwardrobe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
