@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    public class Tops
+    public class Shoes
     {
-        public int ID{ get; set; }
-        public string Name{ get; set; }
-        public int Size{ get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Size { get; set; }
         public string Condition { get; set; }
-
-        
     }
 }
