@@ -1,11 +1,11 @@
-﻿ <Page x:Class="HW2.RegistrationPage"
+﻿ <Page x:Class="Smart_Wardrobe.RegistrationPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:HW2"
+      xmlns:local="clr-namespace:Smart_Wardrobe"
       mc:Ignorable="d"
-      Title="RegistrationPage" Height="388.079" Width="286.093">
+      Title="AdditionsPage" Height="388.079" Width="286.093">
 
 
     <Grid x:Name="mainGrid" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="200" MaxWidth="400">
