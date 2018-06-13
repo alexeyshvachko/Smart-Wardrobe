@@ -55,5 +55,7 @@ namespace Smart_Wardrobe
             dirtyGrid.ItemsSource = _clothes
                 .Where(c => !c.Condition);
         }
-    }
+
+    
+  }
 }

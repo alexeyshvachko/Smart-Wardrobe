@@ -15,14 +15,24 @@ using System.Windows.Shapes;
 
 namespace Smart_Wardrobe
 {
-    /// <summary>
-    /// Interaction logic for AdditionPage.xaml
-    /// </summary>
-    public partial class AdditionPage : Page
-    {
-        public AdditionPage()
-        {
-            //InitializeComponent();
-        }
+  /// <summary>
+  /// Interaction logic for AdditionPage.xaml
+  /// </summary>
+  public partial class AddPage : Page {
+    public AddPage() {
+      InitializeComponent();
+      mainGrid.DataContext = this;
     }
+
+    private void Add_Click(object sender, RoutedEventArgs e) {
+
+    }
+
+    private void Back_Click(object sender, RoutedEventArgs e) {
+      this.NavigationService.Navigate(new Uri("StartingPage.xaml", UriKind.RelativeOrAbsolute));
+    }
+
+    
+  }
 }
+
