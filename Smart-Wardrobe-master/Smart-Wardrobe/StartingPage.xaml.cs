@@ -13,16 +13,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Smart_Wardrobe
-{
-    /// <summary>
-    /// Interaction logic for StartingPage.xaml
-    /// </summary>
-    public partial class StartingPage : Page
-    {
-        public StartingPage()
-        {
-            //InitializeComponent();
-        }
+namespace Smart_Wardrobe {
+  /// <summary>
+  /// Interaction logic for StartingPage.xaml
+  /// </summary>
+  public partial class StartingPage : Page {
+    public StartingPage() {
+      InitializeComponent();
+      mainGrid.DataContext = this;
     }
+
+    private void Wardrobe_Click(object sender, RoutedEventArgs e) {
+      this.NavigationService.Navigate(new Uri("MainPage.xaml", UriKind.RelativeOrAbsolute));
+    }
+
+    private void AddClothing_Click(object sender, RoutedEventArgs e) {
+      this.NavigationService.Navigate(new Uri("AdditionPage.xaml", UriKind.RelativeOrAbsolute));
+    }
+  }
 }
