@@ -25,19 +25,23 @@ namespace Smart_Wardrobe
 
         public MainPage()
         {
-            InitializeComponent();
+            InitializeComponent();   
 
             _clothes = new List<Cloth>
             {
                 new Cloth
                 {
+                    Type="Bottoms",
                     Name = "hhjhj",
+                    Size=50,
                     Condition = false
                 },
 
                 new Cloth
                 {
+                    Type="Tops",
                     Name  = "hjsdjdhjhj",
+                    Size=46,
                     Condition = true
                 }
     
@@ -47,9 +51,9 @@ namespace Smart_Wardrobe
         }
 
 
-        private void DataGridItemSources()
+        private void DataGridItemSources( )
         {
-            clothesGrid.ItemsSource = _clothes
+            cleanGrid.ItemsSource = _clothes
                 .Where(c => c.Condition);
 
             dirtyGrid.ItemsSource = _clothes
