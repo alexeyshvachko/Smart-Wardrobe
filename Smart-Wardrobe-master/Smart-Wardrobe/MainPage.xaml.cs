@@ -43,11 +43,11 @@ namespace Smart_Wardrobe
     
             };
 
-            ListBoxItemSources();
+            DataGridItemSources();
         }
 
 
-        private void ListBoxItemSources()
+        private void DataGridItemSources()
         {
             clothesGrid.ItemsSource = _clothes
                 .Where(c => c.Condition);
