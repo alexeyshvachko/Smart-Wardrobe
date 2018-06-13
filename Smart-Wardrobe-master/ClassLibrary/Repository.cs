@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    internal class Repository: Interface {
+    public class Repository: Interface {
        
 
         public class GeneralData
@@ -14,7 +14,7 @@ namespace Classes
             public List<Cloth> Clothes { get; set; }
             
         }
-        private GeneralData _generalData;
+        private GeneralData _generalData = new GeneralData();
 
         public IEnumerable<Cloth> Clothes => _generalData.Clothes;
 

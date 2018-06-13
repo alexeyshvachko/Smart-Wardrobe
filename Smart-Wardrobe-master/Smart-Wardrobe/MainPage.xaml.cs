@@ -23,11 +23,14 @@ namespace Smart_Wardrobe
     {
         List<Cloth> _clothes;
 
-        public MainPage()
-        {
-            InitializeComponent();   
+    public Repository Store { get; set; }
 
-            _clothes = new List<Cloth>
+    public MainPage()
+        {
+            InitializeComponent();
+            Store = new Repository();
+
+      _clothes = new List<Cloth>
             {
                 new Cloth
                 {
@@ -60,6 +63,12 @@ namespace Smart_Wardrobe
                 .Where(c => !c.Condition);
         }
 
-    
+    private void action_Click (object sender, RoutedEventArgs e) {
+      var item = cleanGrid.SelectedItem;
+      if (item != null) {
+        Store.Action_WearOrWash(item as Cloth);
+        }
+      }
+    }
   }
-}
+
