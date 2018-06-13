@@ -23,20 +23,23 @@
         </Grid.RowDefinitions>
 
 
-        <ComboBox x:Name="typesCB" Grid.Row="0" Grid.Column="0"  Margin="0,0,0,40" IsReadOnly="True" IsEditable="True" Text="Type of clothing" Grid.ColumnSpan="2"  />
+        <ComboBox x:Name="typesCB" Grid.Row="0" Grid.Column="0"  Margin="0,0,0,40" IsReadOnly="True" IsEditable="True" Text="Type of clothing" Grid.ColumnSpan="2" />
         <Button x:Name="action" Content="Action(Use/Wash)" Grid.Column="3"  Margin="1,0,0,40"/>
-        <DataGrid x:Name="cleanGrid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-                  AutoGenerateColumns="True" SelectionMode="Single" CanUserResizeRows="False" CanUserSortColumns="False" IsManipulationEnabled="False" IsReadOnly="True" Margin="0,0,10,10" Grid.RowSpan="2">
+        <DataGrid x:Name="clothesGrid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                  AutoGenerateColumns="False" SelectionMode="Single" CanUserResizeRows="False" CanUserSortColumns="False" IsManipulationEnabled="False" IsReadOnly="True" Margin="0,0,10,10" Grid.RowSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Clean clothes" Binding="{Binding CleanClothes}" CanUserResize="False"/>
-
+                <DataGridTextColumn Width="*" Header="Item" Binding="{Binding Name}" CanUserResize="False"/>
+                <DataGridTextColumn Width="*" Header="Size" Binding="{Binding Size}" CanUserResize="False"/>
+                <DataGridTextColumn Width="*" Header="Condition" Binding="{Binding Condition}" CanUserResize="False"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="dirtyGrid" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
-                  AutoGenerateColumns="True" SelectionMode="Single" CanUserResizeRows="False" CanUserSortColumns="False" IsManipulationEnabled="False" IsReadOnly="True" Margin="10,0,0,10"
+                  AutoGenerateColumns="False" SelectionMode="Single" CanUserResizeRows="False" CanUserSortColumns="False" IsManipulationEnabled="False" IsReadOnly="True" Margin="10,0,0,10"
                   >
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Not so clean clothes" Binding="{Binding DirtyClothes}" CanUserResize="False"/>
+                <DataGridTextColumn Width="*" Header="Item" Binding="{Binding Name}" CanUserResize="False"/>
+                <DataGridTextColumn Width="*" Header="Size" Binding="{Binding Size}" CanUserResize="False"/>
+                <DataGridTextColumn Width="*" Header="Condition" Binding="{Binding Condition}" CanUserResize="False"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
