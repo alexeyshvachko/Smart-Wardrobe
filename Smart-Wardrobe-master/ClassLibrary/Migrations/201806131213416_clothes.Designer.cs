@@ -7,13 +7,13 @@ namespace Classes.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class smartwardrobe1 : IMigrationMetadata
+    public sealed partial class clothes : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(smartwardrobe1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(clothes));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806101809485_smartwardrobe1"; }
+            get { return "201806131213416_clothes"; }
         }
         
         string IMigrationMetadata.Source

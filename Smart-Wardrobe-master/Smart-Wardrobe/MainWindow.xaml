@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Smart_Wardrobe"
         mc:Ignorable="d"
-        Title="smartwardrobe" Height="366.858" Width="525" Loaded="WindowLoaded">
+        Title="smartwardrobe" Height="366.858" Width="525" >
     <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden">
     </Frame>
 </Window>

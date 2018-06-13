@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    public class Bottoms
+    public class Cloth
     {
-        public int ID { get; set; }
-        public List<Cloth>  Clothes{ get; set; }
+        public int  ID{ get; set; }
+        public string Type { get; set; }
         public string Name { get; set; }
         public int Size { get; set; }
-        public string Condition { get; set; }
+        public bool Condition { get; set; }
     }
 }

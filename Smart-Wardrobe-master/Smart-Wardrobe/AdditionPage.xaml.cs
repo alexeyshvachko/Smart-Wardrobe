@@ -22,7 +22,7 @@ namespace Smart_Wardrobe
     {
         public AdditionPage()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

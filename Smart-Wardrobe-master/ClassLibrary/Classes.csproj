@@ -47,15 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bottoms.cs" />
+    <Compile Include="Cloth.cs" />
     <Compile Include="Context.cs" />
-    <Compile Include="Migrations\201806101809485_smartwardrobe1.cs" />
-    <Compile Include="Migrations\201806101809485_smartwardrobe1.Designer.cs">
-      <DependentUpon>201806101809485_smartwardrobe1.cs</DependentUpon>
+    <Compile Include="Interface.cs" />
+    <Compile Include="Migrations\201806131213416_clothes.cs" />
+    <Compile Include="Migrations\201806131213416_clothes.Designer.cs">
+      <DependentUpon>201806131213416_clothes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Shoes.cs" />
-    <Compile Include="Tops.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,8 +63,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806101809485_smartwardrobe1.resx">
-      <DependentUpon>201806101809485_smartwardrobe1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806131213416_clothes.resx">
+      <DependentUpon>201806131213416_clothes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

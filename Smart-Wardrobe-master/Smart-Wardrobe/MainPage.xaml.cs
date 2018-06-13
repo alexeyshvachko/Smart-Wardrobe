@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,39 @@ namespace Smart_Wardrobe
     /// </summary>
     public partial class MainPage : Page
     {
+        List<Cloth> _clothes;
+
         public MainPage()
         {
             InitializeComponent();
+
+            _clothes = new List<Cloth>
+            {
+                new Cloth
+                {
+                    Name = "hhjhj",
+                    Condition = false
+                },
+
+                new Cloth
+                {
+                    Name  = "hjsdjdhjhj",
+                    Condition = true
+                }
+    
+            };
+
+            ListBoxItemSources();
+        }
+
+
+        private void ListBoxItemSources()
+        {
+            clothesGrid.ItemsSource = _clothes
+                .Where(c => c.Condition);
+
+            dirtyGrid.ItemsSource = _clothes
+                .Where(c => !c.Condition);
         }
     }
 }

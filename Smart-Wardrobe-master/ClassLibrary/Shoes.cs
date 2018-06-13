@@ -9,6 +9,7 @@ namespace Classes
     public class Shoes
     {
         public int ID { get; set; }
+        public List<Cloth> Clothes{ get; set; }
         public string Name { get; set; }
         public int Size { get; set; }
         public string Condition { get; set; }

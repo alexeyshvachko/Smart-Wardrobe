@@ -13,8 +13,7 @@ namespace Classes
         {
 
         }
-        public DbSet<Tops> Tops { get; set; }
-        public DbSet<Bottoms> Bottoms{ get; set; }
-        public DbSet<Shoes> Shoes{ get; set; }
+        public DbSet<Cloth> Clothes { get; set; }
+       
     }
 }
