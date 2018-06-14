@@ -28,18 +28,18 @@
         <DataGrid x:Name="CleanGrid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                   AutoGenerateColumns="False" SelectionMode="Single" CanUserResizeRows="False" CanUserSortColumns="False" IsManipulationEnabled="False" IsReadOnly="True" Margin="0,0,10,10" Grid.RowSpan="2">
             <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Type" Binding="{Binding Type}" CanUserResize="False"/>
                 <DataGridTextColumn Width="*" Header="Item" Binding="{Binding Name}" CanUserResize="False"/>
                 <DataGridTextColumn Width="*" Header="Size" Binding="{Binding Size}" CanUserResize="False"/>
-                <DataGridTextColumn Width="*" Header="Condition" Binding="{Binding Condition}" CanUserResize="False"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="DirtyGrid" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
                   AutoGenerateColumns="False" SelectionMode="Single" CanUserResizeRows="False" CanUserSortColumns="False" IsManipulationEnabled="False" IsReadOnly="True" Margin="10,0,0,10"
                   >
             <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Type" Binding="{Binding Type}" CanUserResize="False"/>
                 <DataGridTextColumn Width="*" Header="Item" Binding="{Binding Name}" CanUserResize="False"/>
                 <DataGridTextColumn Width="*" Header="Size" Binding="{Binding Size}" CanUserResize="False"/>
-                <DataGridTextColumn Width="*" Header="Condition" Binding="{Binding Condition}" CanUserResize="False"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Clean" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Bottom"/>
