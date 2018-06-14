@@ -30,7 +30,6 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Item" Binding="{Binding Name}" CanUserResize="False"/>
                 <DataGridTextColumn Width="*" Header="Size" Binding="{Binding Size}" CanUserResize="False"/>
-                <DataGridTextColumn Width="*" Header="Condition" Binding="{Binding Condition}" CanUserResize="False"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="dirtyGrid" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
@@ -39,7 +38,6 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Item" Binding="{Binding Name}" CanUserResize="False"/>
                 <DataGridTextColumn Width="*" Header="Size" Binding="{Binding Size}" CanUserResize="False"/>
-                <DataGridTextColumn Width="*" Header="Condition" Binding="{Binding Condition}" CanUserResize="False"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Clean" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Bottom"/>
