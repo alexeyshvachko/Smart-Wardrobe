@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Smart_Wardrobe"
       mc:Ignorable="d"
-      Title="MainPage" Height="647.798" Width="433.774">
+      Title="MainPage" Height="647.798" Width="684.774">
 
     <Grid x:Name="mainGrid" Margin="0,186,0,263" VerticalAlignment="Center" HorizontalAlignment="Stretch" MinWidth="350" MaxWidth="600" Height="199">
         <Grid.ColumnDefinitions>

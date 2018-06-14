@@ -35,6 +35,6 @@
         <Label Grid.Column="0" Content="Size" HorizontalAlignment="Right" Margin="0,32,0,14" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2"/>
         <Label Grid.Column="0" Content="Condition" HorizontalAlignment="Right" Margin="0,32,0,14" Grid.Row="3" VerticalAlignment="Top" Grid.RowSpan="2"/>
         <ComboBox Grid.Column="1" HorizontalAlignment="Left"  Name="ConditionComboBox" Grid.Row="4" VerticalAlignment="Top" Width="138"/>
-        <ComboBox Grid.Column="1" HorizontalAlignment="Left"  Name="TypeComboBox" Grid.Row="1" VerticalAlignment="Top" Width="138"/>
+        <ComboBox Grid.Column="1" HorizontalAlignment="Left"  Name="TypeComboBox" Grid.Row="1" VerticalAlignment="Top" Width="138" SelectionChanged="TypeComboBox_SelectionChanged"/>
     </Grid>
 </Page>

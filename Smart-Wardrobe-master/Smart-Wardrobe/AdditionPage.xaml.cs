@@ -21,60 +21,110 @@ namespace Smart_Wardrobe
   /// <summary>
   /// Interaction logic for AdditionPage.xaml
   /// </summary>
-  public partial class AddPage : Page {
-    public AddPage() {
-      InitializeComponent();
-      mainGrid.DataContext = this;
-    }
-    public string Type { get; set; }
-    public string Name { get; set; }
-    public int Size { get; set; }
-    public bool Condition { get; set; }
+  public partial class AddPage : Page
+  {
+        public const string type1 = "Tops";
+        public const string type2 = "Bottoms";
+        private const string type3 = "Shoes";
 
-    private void Add_Click(object sender, RoutedEventArgs e) {
-    if (TypeComboBox.Text == "") {
-      MessageBox.Show("Enter the type of clothing");
-      return;
-      }
-      if (NameTextBox.Text == "") {
-        MessageBox.Show("Enter the name of clothing");
-        return;
-      }
-      if (SizeTextBox.Text == "") {
-        MessageBox.Show("Enter the size of clothing");
-        return;
-      }
-      if (ConditionComboBox.Text == "") {
-        MessageBox.Show("Enter the condition of clothing");
-        return;
-      }
-            try
-            {
-                var a = new Cloth
+        private const string condition1 = "Clean";
+        private const string condition2 = "Dirty";
+
+
+        private Cloth _cloth;
+
+
+        public AddPage()
+        {
+            
+
+            InitializeComponent();
+            mainGrid.DataContext = this;
+            SizeTextBox.Text = "";
+            ConditionComboBox.ItemsSource = new string[] { condition1, condition2 };
+            TypeComboBox.ItemsSource = new string[] { type1, type2, type3 };
+
+        }
+        public string Type { get; set; }
+        public string Name { get; set; }
+        public int Size { get; set; }
+        public bool Condition { get; set; }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+          if (TypeComboBox.Text == "")
+          {
+            MessageBox.Show("Enter the type of clothing");
+            return;
+          }
+          if (NameTextBox.Text == "")
+          {
+            MessageBox.Show("Enter the name of clothing");
+            return;
+          }
+          if (SizeTextBox.Text == "")
+          {
+            MessageBox.Show("Enter the size of clothing");
+            return;
+          }
+          if (ConditionComboBox.Text == "")
+          {
+            MessageBox.Show("Enter the condition of clothing");
+            return;
+          }
+                try
                 {
-                    Name = NameTextBox.Text,
-                    Size = int.Parse(SizeTextBox.Text),
-                    Condition = bool.Parse(ConditionComboBox.Text),
-                    Type = TypeComboBox.Text
-                };
-                using (Context context = new Context())
-                {
-                    if (!context.Clothes.Contains(a))
+                    _cloth = new Cloth
                     {
-                        context.Clothes.AddOrUpdate(a);
+                        Name = NameTextBox.Text,
+                        Size = int.Parse(SizeTextBox.Text),
+                        Type = TypeComboBox.Text
+                    };
+
+                    if (ConditionComboBox.SelectedIndex == 0)
+                    {
+                        _cloth.Condition = true;
+                    }
+                    else
+                    {
+                        _cloth.Condition = false;
+                    }
+
+                    using (Context context = new Context())
+                    {
+                        context.Clothes.Add(_cloth);
+                    context.SaveChanges();
                     }
 
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Size is an int value\n" +
-                    "Condition is bool", "Error!");
-            }
-    }
-        private void Back_Click(object sender, RoutedEventArgs e) {
-      this.NavigationService.Navigate(new Uri("StartingPage.xaml", UriKind.RelativeOrAbsolute));
+                catch (Exception excep)
+                {
+                    MessageBox.Show($" {excep.Message}", "Error!");
+                }
         }
-  }
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("StartingPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+       
+
+        private void TypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_cloth != null)
+            {
+
+                int index = ConditionComboBox.SelectedIndex;
+
+                if (index == 0)
+                {
+                    _cloth.Condition = false;
+                }
+                else
+                    _cloth.Condition = true;
+
+            }
+        }
+    }
 }
 

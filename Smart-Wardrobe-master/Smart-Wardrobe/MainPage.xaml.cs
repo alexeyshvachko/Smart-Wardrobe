@@ -21,41 +21,19 @@ namespace Smart_Wardrobe
     /// Interaction logic for MainPage.xaml
     /// </summary>
     public partial class MainPage : Page
-    {
+    {    
         List<Cloth> _clothes;
 
-    public Repository Store { get; set; }
+        public Repository Store { get; set; }
 
-    public MainPage()
+        public MainPage()
         {
             InitializeComponent();
             Store = new Repository();
-
-      _clothes = new List<Cloth>
-            {
-                new Cloth
-                {
-                    Type="Bottoms",
-                    Name = "hhjhj",
-                    Size=50,
-                    Condition = false
-                },
-
-                new Cloth
-                {
-                    Type="Tops",
-                    Name  = "hjsdjdhjhj",
-                    Size=46,
-                    Condition = true
-                }
-    
-            };
-
             DataGridItemSources();
         }
 
-
-        private void DataGridItemSources( )
+        private void DataGridItemSources()
         {
             using (Context context = new Context())
             {
@@ -67,10 +45,12 @@ namespace Smart_Wardrobe
             }
         }
 
-    private void Action_Click (object sender, RoutedEventArgs e) {
+        private void Action_Click (object sender, RoutedEventArgs e)
+        {
             var clean = cleanGrid.SelectedItem as Cloth;
             var dirty = dirtyGrid.SelectedItem as Cloth;
-      if (clean != null && dirty == null) {
+            if (clean != null && dirty == null)
+            {
         
                 using (Context context = new Context())
                 {
@@ -79,22 +59,23 @@ namespace Smart_Wardrobe
                     context.SaveChanges();
                     DataGridItemSources();
                 }
-        }
+            }
             if (clean == null && dirty != null)
-            {
-                using (Context context = new Context())
                 {
-                    dirty.Condition = true;
-                    context.Clothes.AddOrUpdate(dirty);
-                    context.SaveChanges();
-                    DataGridItemSources();
-                }
+                    using (Context context = new Context())
+                    {
+                        dirty.Condition = true;
+                        context.Clothes.AddOrUpdate(dirty);
+                        context.SaveChanges();
+                        DataGridItemSources();
+                    }
             }
         }
 
-    private void Button_Click(object sender, RoutedEventArgs e) {
-      this.NavigationService.Navigate(new Uri("StartingPage.xaml", UriKind.RelativeOrAbsolute));
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("StartingPage.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
-  }
-  }
+}
 
