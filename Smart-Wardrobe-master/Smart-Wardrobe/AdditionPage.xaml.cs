@@ -82,7 +82,7 @@ namespace Smart_Wardrobe
                     };
 
                     if (ConditionComboBox.SelectedIndex == 0)
-                    {
+                    { 
                         _cloth.Condition = true;
                     }
                     else

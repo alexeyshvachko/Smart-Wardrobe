@@ -34,34 +34,36 @@ namespace Smart_Wardrobe
 
         public Repository Store { get; set; }
 
-        
+
 
         public MainPage()
         {
             InitializeComponent();
             Store = new Repository();
             DataGridItemSources();
+            TypesComboBox.ItemsSource = new string[] { type1, type2, type3, condition1, condition2 };
+
         }
 
         private void DataGridItemSources()
         {
             using (Context context = new Context())
             {
-                cleanGrid.ItemsSource = context.Clothes
+                CleanGrid.ItemsSource = context.Clothes
                 .Where(c => c.Condition).ToList();
 
-                dirtyGrid.ItemsSource = context.Clothes
+                DirtyGrid.ItemsSource = context.Clothes
                     .Where(c => !c.Condition).ToList();
             }
         }
 
-        private void Action_Click (object sender, RoutedEventArgs e)
+        private void Action_Click(object sender, RoutedEventArgs e)
         {
-            var clean = cleanGrid.SelectedItem as Cloth;
-            var dirty = dirtyGrid.SelectedItem as Cloth;
+            var clean = CleanGrid.SelectedItem as Cloth;
+            var dirty = DirtyGrid.SelectedItem as Cloth;
             if (clean != null && dirty == null)
             {
-        
+
                 using (Context context = new Context())
                 {
                     clean.Condition = false;
@@ -71,14 +73,14 @@ namespace Smart_Wardrobe
                 }
             }
             if (clean == null && dirty != null)
+            {
+                using (Context context = new Context())
                 {
-                    using (Context context = new Context())
-                    {
-                        dirty.Condition = true;
-                        context.Clothes.AddOrUpdate(dirty);
-                        context.SaveChanges();
-                        DataGridItemSources();
-                    }
+                    dirty.Condition = true;
+                    context.Clothes.AddOrUpdate(dirty);
+                    context.SaveChanges();
+                    DataGridItemSources();
+                }
             }
         }
 
@@ -87,24 +89,50 @@ namespace Smart_Wardrobe
             this.NavigationService.Navigate(new Uri("StartingPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
-        private void typesCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TypesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int index = typesCB.SelectedIndex;
-            string item = typesCB.SelectedItem as string;
-
-            _cloth.Type = item;
-
-
-            if (index == 0)
+            if (_cloth != null)
             {
-                _cloth.Condition = false;
+                int index = TypesComboBox.SelectedIndex;
+                string item = TypesComboBox.SelectedItem as string;
+                using (Context context = new Context())
+                {
+                    if (_cloth.Type == item)
+                    {
+                        CleanGrid.ItemsSource = context.Clothes.
+                               Where(c => c.Type == item).ToList();
+
+
+                        DirtyGrid.ItemsSource = context.Clothes.
+                            Where(c => c.Type == item).ToList();
+                    }
+
+                    if (index == 0)
+                    {
+                        _cloth.Condition = false;
+
+
+                        CleanGrid.ItemsSource = context.Clothes.
+                           Where(c => c.Condition == false).ToList();
+
+
+                        DirtyGrid.ItemsSource = context.Clothes.
+                            Where(c => c.Condition == false).ToList();
+
+                    }
+                    else
+                        _cloth.Condition = true;
+                    CleanGrid.ItemsSource = context.Clothes.
+                               Where(c => c.Condition == true).ToList();
+
+
+                    DirtyGrid.ItemsSource = context.Clothes.
+                        Where(c => c.Condition == true).ToList();
+                }
+
+
+
             }
-            else
-                _cloth.Condition = true;
-
-                
-
-
         }
     }
 }
