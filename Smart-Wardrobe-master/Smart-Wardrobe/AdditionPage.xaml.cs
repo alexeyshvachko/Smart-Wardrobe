@@ -66,7 +66,6 @@ namespace Smart_Wardrobe
 
                 }
             }
-            
             catch (Exception)
             {
                 MessageBox.Show("Size is an int value\n" +
