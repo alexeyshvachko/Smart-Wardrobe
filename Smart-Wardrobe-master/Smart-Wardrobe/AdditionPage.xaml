@@ -27,11 +27,11 @@
 
         <Label Content="Additions" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,0,10"/>
         <Label Grid.Column="0" Content="Type" HorizontalAlignment="Right" Margin="0,32,0,14" Grid.RowSpan="2"/>
-        <TextBox Margin="0,0,0,10" TextWrapping="Wrap" Text="{Binding Path=Type}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Height="18"/>
-        <TextBox Margin="0,0,0,10" TextWrapping="Wrap" Text="{Binding Path=Name}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Height="18"/>
-        <TextBox Margin="0,0,0,10" TextWrapping="Wrap" Text="{Binding Path=Size}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Height="18"/>
-        <TextBox Margin="0,0,0,10" TextWrapping="Wrap" Text="{Binding Path=Condition}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Height="18"/>
-        <Button Content="Add" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="5"  Margin="0,5"  />
+        <TextBox Margin="0,0,0,10" TextWrapping="Wrap" Text="{Binding Path=Type}" Name="TypeTexBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Height="18"/>
+        <TextBox Margin="0,0,0,10" TextWrapping="Wrap" Text="{Binding Path=Name}" Name="NameTextBox" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Height="18"/>
+        <TextBox Margin="0,0,0,10" TextWrapping="Wrap" Text="{Binding Path=Size}" Name="SizeTextBox" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Height="18"/>
+        <TextBox Margin="0,0,0,10" TextWrapping="Wrap" Text="{Binding Path=Condition}" Name="ConditionTextBox" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Height="18"/>
+        <Button Content="Add" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="5"  Margin="0,5" Click="Add_Click" />
         <Button Content="Back" Margin="0" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="6" Click="Back_Click" />
         <Label Grid.Column="0" Content="Name" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,32,0,14" Grid.Row="1" Grid.RowSpan="2"/>
         <Label Grid.Column="0" Content="Size" HorizontalAlignment="Right" Margin="0,32,0,14" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2"/>

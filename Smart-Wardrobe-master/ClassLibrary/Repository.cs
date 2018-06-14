@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 namespace Classes
 {
     public class Repository: Interface {
-       
 
         public class GeneralData
         {
             public List<Cloth> Clothes { get; set; }
-            
         }
-        private GeneralData _generalData = new GeneralData();
+        public GeneralData _generalData;
 
         public IEnumerable<Cloth> Clothes => _generalData.Clothes;
 
@@ -22,15 +20,16 @@ namespace Classes
         {
             cloth.ID = _generalData.Clothes.Count > 0 ? _generalData.Clothes.Max(c => c.ID) + 1 : 1;
             _generalData.Clothes.Add(cloth);
-            Save();
+            
         }
         public void Action_WearOrWash(Cloth cloth)
         {
-            foreach(var condition in _generalData.Clothes)
-
+            using (Context context = new Context())
             {
-                condition.Condition = !condition.Condition;
+
+                context.Clothes.FirstOrDefault();
             }
+            
         }
         public void Save()
         {

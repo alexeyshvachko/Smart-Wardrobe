@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Classes;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,27 +28,50 @@ namespace Smart_Wardrobe
     }
     public string Type { get; set; }
     public string Name { get; set; }
-    public string Size { get; set; }
-    public string Condition { get; set; }
+    public int Size { get; set; }
+    public bool Condition { get; set; }
 
     private void Add_Click(object sender, RoutedEventArgs e) {
-    if (Type == null || Type.Equals(string.Empty)) {
+    if (Type == null) {
       MessageBox.Show("Enter the type of clothing");
       return;
       }
-      if (Name == null || Name.Equals(string.Empty)) {
+      if (NameTextBox.Text == "") {
         MessageBox.Show("Enter the name of clothing");
         return;
       }
-      if (Size == null || Size.Equals(string.Empty)) {
+      if (SizeTextBox.Text == "") {
         MessageBox.Show("Enter the size of clothing");
         return;
-        }
-        if (Condition == null || !Condition.Equals(string.Empty)) {
+      }
+        if (ConditionTextBox.Text == "") {
         MessageBox.Show("Enter the condition of clothing");
         return;
         }
+            try
+            {
+                var a = new Cloth
+                {
+                    Name = NameTextBox.Text,
+                    Size = int.Parse(SizeTextBox.Text),
+                    Condition = bool.Parse(ConditionTextBox.Text),
+                    Type = TypeTexBox.Text
+                };
+                using (Context context = new Context())
+                {
+                    if (!context.Clothes.Contains(a))
+                    {
+                        context.Clothes.AddOrUpdate(a);
+                    }
 
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Size is an int value" +
+                    "Condition is bool", "Error!");
+            }
+            
       //  var err = this.AddPage.AddClothes(Type, Name, Size, Condition);
       //  if (err != null) {
       //    MessageBox.Show(err);

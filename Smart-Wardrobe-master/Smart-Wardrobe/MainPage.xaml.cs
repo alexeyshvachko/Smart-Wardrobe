@@ -1,6 +1,7 @@
 ﻿using Classes;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,19 +57,40 @@ namespace Smart_Wardrobe
 
         private void DataGridItemSources( )
         {
-            cleanGrid.ItemsSource = _clothes
-                .Where(c => c.Condition);
+            using (Context context = new Context())
+            {
+                cleanGrid.ItemsSource = context.Clothes
+                .Where(c => c.Condition).ToList();
 
-            dirtyGrid.ItemsSource = _clothes
-                .Where(c => !c.Condition);
+                dirtyGrid.ItemsSource = context.Clothes
+                    .Where(c => !c.Condition).ToList();
+            }
         }
 
     private void action_Click (object sender, RoutedEventArgs e) {
-      var item = cleanGrid.SelectedItem;
-      if (item != null) {
-        Store.Action_WearOrWash(item as Cloth);
+            var clean = cleanGrid.SelectedItem as Cloth;
+            var dirty = dirtyGrid.SelectedItem as Cloth;
+      if (clean != null && dirty == null) {
+        
+                using (Context context = new Context())
+                {
+                    clean.Condition = false;
+                    context.Clothes.AddOrUpdate(clean);
+                    context.SaveChanges();
+                    DataGridItemSources();
+                }
         }
-      }
+            if (clean == null && dirty != null)
+            {
+                using (Context context = new Context())
+                {
+                    dirty.Condition = true;
+                    context.Clothes.AddOrUpdate(dirty);
+                    context.SaveChanges();
+                    DataGridItemSources();
+                }
+            }
+        }
     }
   }
 
