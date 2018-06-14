@@ -32,7 +32,7 @@ namespace Smart_Wardrobe
     public bool Condition { get; set; }
 
     private void Add_Click(object sender, RoutedEventArgs e) {
-    if (Type == null) {
+    if (TypeComboBox.Text == "") {
       MessageBox.Show("Enter the type of clothing");
       return;
       }
@@ -44,18 +44,18 @@ namespace Smart_Wardrobe
         MessageBox.Show("Enter the size of clothing");
         return;
       }
-        if (ConditionTextBox.Text == "") {
+      if (ConditionComboBox.Text == "") {
         MessageBox.Show("Enter the condition of clothing");
         return;
-        }
+      }
             try
             {
                 var a = new Cloth
                 {
                     Name = NameTextBox.Text,
                     Size = int.Parse(SizeTextBox.Text),
-                    Condition = bool.Parse(ConditionTextBox.Text),
-                    Type = TypeTexBox.Text
+                    Condition = bool.Parse(ConditionComboBox.Text),
+                    Type = TypeComboBox.Text
                 };
                 using (Context context = new Context())
                 {
@@ -66,20 +66,16 @@ namespace Smart_Wardrobe
 
                 }
             }
+            
             catch (Exception)
             {
-                MessageBox.Show("Size is an int value" +
+                MessageBox.Show("Size is an int value\n" +
                     "Condition is bool", "Error!");
             }
-            
-      //  var err = this.AddPage.AddClothes(Type, Name, Size, Condition);
-      //  if (err != null) {
-      //    MessageBox.Show(err);
-      //  }
     }
-    private void Back_Click(object sender, RoutedEventArgs e) {
+        private void Back_Click(object sender, RoutedEventArgs e) {
       this.NavigationService.Navigate(new Uri("StartingPage.xaml", UriKind.RelativeOrAbsolute));
-      }
-    }
+        }
   }
+}
 
