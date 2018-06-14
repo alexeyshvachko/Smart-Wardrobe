@@ -101,6 +101,7 @@ namespace Smart_Wardrobe
                 {
                     MessageBox.Show($" {excep.Message}", "Error!");
                 }
+        MessageBox.Show("Clothing item added");
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
