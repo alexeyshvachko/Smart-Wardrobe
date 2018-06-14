@@ -25,13 +25,13 @@ namespace Smart_Wardrobe
   {
         public const string type1 = "Tops";
         public const string type2 = "Bottoms";
-        private const string type3 = "Shoes";
+        public const string type3 = "Shoes";
 
-        private const string condition1 = "Clean";
-        private const string condition2 = "Dirty";
+        public const string condition1 = "Clean";
+        public const string condition2 = "Dirty";
 
 
-        private Cloth _cloth;
+        public Cloth _cloth;
 
 
         public AddPage()

@@ -21,10 +21,20 @@ namespace Smart_Wardrobe
     /// Interaction logic for MainPage.xaml
     /// </summary>
     public partial class MainPage : Page
-    {    
-        List<Cloth> _clothes;
+    {
+        public const string type1 = "Tops";
+        public const string type2 = "Bottoms";
+        public const string type3 = "Shoes";
+
+        public const string condition1 = "Clean";
+        public const string condition2 = "Dirty";
+
+
+        public Cloth _cloth;
 
         public Repository Store { get; set; }
+
+        
 
         public MainPage()
         {
@@ -75,6 +85,26 @@ namespace Smart_Wardrobe
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("StartingPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void typesCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = typesCB.SelectedIndex;
+            string item = typesCB.SelectedItem as string;
+
+            _cloth.Type = item;
+
+
+            if (index == 0)
+            {
+                _cloth.Condition = false;
+            }
+            else
+                _cloth.Condition = true;
+
+                
+
+
         }
     }
 }
