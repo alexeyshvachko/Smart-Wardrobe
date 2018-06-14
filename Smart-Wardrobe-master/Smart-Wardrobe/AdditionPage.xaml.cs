@@ -42,7 +42,7 @@ namespace Smart_Wardrobe
         }
         public string Type { get; set; }
         public string Name { get; set; }
-        public int Size { get; set; }
+        public string Size { get; set; }
         public bool Condition { get; set; }
 
         private void Add_Click(object sender, RoutedEventArgs e)
