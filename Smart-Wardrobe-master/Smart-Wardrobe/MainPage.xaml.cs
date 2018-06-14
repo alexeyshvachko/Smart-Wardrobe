@@ -67,7 +67,7 @@ namespace Smart_Wardrobe
             }
         }
 
-    private void action_Click (object sender, RoutedEventArgs e) {
+    private void Action_Click (object sender, RoutedEventArgs e) {
             var clean = cleanGrid.SelectedItem as Cloth;
             var dirty = dirtyGrid.SelectedItem as Cloth;
       if (clean != null && dirty == null) {
@@ -91,6 +91,10 @@ namespace Smart_Wardrobe
                 }
             }
         }
+
+    private void Button_Click(object sender, RoutedEventArgs e) {
+      this.NavigationService.Navigate(new Uri("StartingPage.xaml", UriKind.RelativeOrAbsolute));
     }
+  }
   }
 
