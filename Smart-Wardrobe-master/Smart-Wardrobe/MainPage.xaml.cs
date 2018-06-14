@@ -26,23 +26,16 @@ namespace Smart_Wardrobe
         public const string type2 = "Bottoms";
         public const string type3 = "Shoes";
 
-        public const string condition1 = "Clean";
-        public const string condition2 = "Dirty";
-
-
         public Cloth _cloth;
 
         public Repository Store { get; set; }
-
-
 
         public MainPage()
         {
             InitializeComponent();
             Store = new Repository();
             DataGridItemSources();
-            TypesComboBox.ItemsSource = new string[] { type1, type2, type3, condition1, condition2 };
-
+            TypesComboBox.ItemsSource = new string[] { type1, type2, type3 };
         }
 
         private void DataGridItemSources()
@@ -93,45 +86,18 @@ namespace Smart_Wardrobe
         {
             if (_cloth != null)
             {
-                int index = TypesComboBox.SelectedIndex;
                 string item = TypesComboBox.SelectedItem as string;
                 using (Context context = new Context())
                 {
                     if (_cloth.Type == item)
-                    {
+                    {                       
                         CleanGrid.ItemsSource = context.Clothes.
                                Where(c => c.Type == item).ToList();
-
 
                         DirtyGrid.ItemsSource = context.Clothes.
                             Where(c => c.Type == item).ToList();
                     }
-
-                    if (index == 0)
-                    {
-                        _cloth.Condition = false;
-
-
-                        CleanGrid.ItemsSource = context.Clothes.
-                           Where(c => c.Condition == false).ToList();
-
-
-                        DirtyGrid.ItemsSource = context.Clothes.
-                            Where(c => c.Condition == false).ToList();
-
-                    }
-                    else
-                        _cloth.Condition = true;
-                    CleanGrid.ItemsSource = context.Clothes.
-                               Where(c => c.Condition == true).ToList();
-
-
-                    DirtyGrid.ItemsSource = context.Clothes.
-                        Where(c => c.Condition == true).ToList();
                 }
-
-
-
             }
         }
     }
